@@ -14,7 +14,7 @@ stage('deploy')
 {
 steps
 {
-bat echo 'deploying build'
+bat 'echo deploying build'
 }
 }
 stage ('Regression Test')
