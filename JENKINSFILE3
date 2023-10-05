@@ -1,1 +1,49 @@
+pipeline
+{
+agent any
+stages
+{
+stage("Welcome")
+{
+steps
+{
+bat 'whoami'
+}
+}
+stage('deploy')
+{
+steps
+{
+bat echo 'deploying build'
+}
+}
+stage ('Regression Test')
+{
+parallel
+{
+stage('chrome')
+{
+steps
+{
+bat 'echo running E2E tests on chrome'
+}
+}
+stage('firefox')
+{
+steps
+{
+bat 'echo running E2E tests on firefox'
+}
+}
+stage('safari')
+{
+steps
+{
+bat 'echo running E2E tests on safari'
+}
+}
+}
+}
+}
+}
 
